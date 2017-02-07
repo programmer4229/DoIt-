@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-     
+    
     @IBOutlet weak var tableView: UITableView!
     
     var tasks: [Task] = []
@@ -30,7 +30,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = UITableViewCell()
         let task = tasks[indexPath.row]
         if task.important {
-            cell.textLabel?.text = "❗️\(task.name )"
+            cell.textLabel?.text = "❗️\(task.name)"
         }else{
             cell.textLabel?.text = task.name
         }
@@ -50,6 +50,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         task3.name = "Mow the lawn"
         task3.important = false
         return[task1, task2, task3]
+    }
+    
+    @IBAction func plusTapped(_ sender: AnyObject) {
+        performSegue(withIdentifier: "addSegue", sender: nil)
+        
     }
 }
 
